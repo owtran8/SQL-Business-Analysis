@@ -1,0 +1,21 @@
+-- What This Shows:
+-- This query classifies orders placed in May 1996 as either completed or 
+-- not yet fulfilled using a CASE statement based on whether the shipping date is NULL.
+
+-- Why it matters:
+-- It demonstrates conditional logic and NULL handling 
+-- important for operational reporting and tracking fulfillment performance.
+
+
+SELECT CustomerID,
+       OrderID,
+       OrderDate,
+       ShippedDate,
+       CASE 
+           WHEN ShippedDate IS NULL 
+                THEN 'Order not yet fulfilled'
+           ELSE 'Order completed'
+       END AS OrderStatus
+FROM Orders
+WHERE OrderDate BETWEEN '1996-05-01' AND '1996-05-31'
+ORDER BY OrderStatus;

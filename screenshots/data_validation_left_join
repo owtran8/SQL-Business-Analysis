@@ -1,0 +1,19 @@
+-- What This Shows:
+-- This query uses a LEFT JOIN to identify orders shipped to 
+-- addresses that do not exist in the customer records.
+
+-- Why it matters:
+-- It highlights potential data integrity issues. This type of 
+-- validation is important in real-world analytics 
+-- to ensure reporting accuracy and clean customer data.
+
+
+SELECT O.OrderID,
+       O.CustomerID,
+       O.OrderDate,
+       O.ShipName,
+       O.ShipAddress
+FROM Orders O
+LEFT JOIN Customers C
+ON O.ShipAddress = C.Address
+WHERE C.CustomerID IS NULL;

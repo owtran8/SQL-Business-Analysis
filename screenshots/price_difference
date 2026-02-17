@@ -1,0 +1,27 @@
+-- What This Shows:
+-- This query compares the average actual sale price of each product (after discounts) 
+-- to its listed price and calculates the percentage difference.
+
+-- Why it matters:
+-- It reveals pricing efficiency and discount impact. Large percentage 
+-- differences may indicate aggressive discounting or pricing strategy issues.
+
+
+CREATE VIEW AvgPriceReceived AS
+SELECT D.ProductID,
+       AVG(D.UnitPrice * (1 - D.Discount)) AS AvgSalePrice
+FROM Orders O
+INNER JOIN OrderDetails D
+ON O.OrderID = D.OrderID
+WHERE O.OrderDate >= '1996-01-01'
+GROUP BY D.ProductID;
+
+SELECT P.ProductID,
+       ROUND(P.PricePerUnit - A.AvgSalePrice, 2) AS PriceDifference,
+       ROUND(100 * (P.PricePerUnit - A.AvgSalePrice) / A.AvgSalePrice, 2)
+       AS PercentDifference
+FROM Products P
+INNER JOIN AvgPriceReceived A
+ON P.ProductID = A.ProductID
+ORDER BY PercentDifference DESC
+LIMIT 25;

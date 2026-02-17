@@ -1,0 +1,27 @@
+-- What This Shows:
+-- This query calculates the total value of each order by combining discounted 
+-- line item revenue with freight charges. It highlights the top 8 highest-value orders 
+-- in the database.
+
+-- Why it matters:
+-- This demonstrates revenue aggregation, joins, and ranking logic
+-- the type of analysis used to identify top-performing transactions 
+-- or key accounts.
+
+
+CREATE VIEW OrderRevenueSummary AS
+SELECT OrderID,
+       ROUND(SUM(UnitPrice * Quantity * (1 - Discount)), 2) AS LineRevenue
+FROM OrderDetails
+GROUP BY OrderID;
+
+SELECT O.OrderID,
+       O.CustomerID,
+       O.Freight,
+       R.LineRevenue,
+       ROUND(O.Freight + R.LineRevenue, 2) AS TotalOrderValue
+FROM Orders O
+INNER JOIN OrderRevenueSummary R
+ON O.OrderID = R.OrderID
+ORDER BY TotalOrderValue DESC
+LIMIT 8;
