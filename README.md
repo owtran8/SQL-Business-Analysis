@@ -22,17 +22,17 @@ Below are selected outputs from analytical queries that show
 skills used in this project.
 
 ### Highest Value Orders
-![High Value Orders](GitHub_PortFolio/screenshots/high_value_orders.png)
+![High Value Orders](screenshots/high_value_orders.png)
 
 
 ### Pricing Efficiency Analysis
-![Price Difference](GitHub_PortFolio/screenshots/price_difference.png)
+![Price Difference](screenshots/price_difference.png)
 
 ### Order Fulfillment Classification
-![Order Status](GitHub_PortFolio/screenshots/order_status_case.png)
+![Order Status](screenshots/order_status_case.png)
 
 ### Shipping Address Data Validation
-![Data Validation](GitHub_PortFolio/screenshots/data_validation_left_join.png)
+![Data Validation](screenshots/data_validation_left_join.png)
 
 
 
@@ -42,3 +42,4 @@ Discounted items can still generate strong overall revenue.
 Actual sale prices often differ from listed prices, highlighting pricing impact.
 CASE logic helps track fulfillment status operationally.
 LEFT JOIN analysis exposed shipping records that do not match customer data.
+
