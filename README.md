@@ -10,7 +10,7 @@ Skills Demonstrated:
 2. Subqueries and view creation
 3. CASE statements and NULL handling
 4. INNER JOIN and LEFT OUTER JOIN logic
-5. Aggregate functions (SUM, AVG, COUNT, SUMIF, COUNTIF, etc)
+5. Aggregate functions (SUM, AVG, COUNT, ETC)
 6. GROUP BY analysis and ORDER BY 
 8. Percent difference and pricing impact analysis
 9. Identifying highest-value orders by combining discounted revenue with freight charges
@@ -41,5 +41,6 @@ Discounted items can still generate strong overall revenue.
 Actual sale prices often differ from listed prices, highlighting pricing impact.
 CASE logic helps track fulfillment status operationally.
 LEFT JOIN analysis exposed shipping records that do not match customer data.
+
 
 
